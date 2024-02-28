@@ -82,3 +82,30 @@ int _which(data_struct *dt);
 int set__env(data_struct *dt, char *name, char *value);
 /* set__env */
 
+unsigned int str__len(char *str);
+/* str__len */
+int str__cmp(const char *s1, const char *s2);
+/* str__cmp */
+int str__ncmp(const char *s1, const char *s2, int n);
+/* str__ncmp */
+char *str__cpy(char *d, const char *s);
+/* str__cpy */
+char *str__cat(char *d, const char *s);
+/* str__cat */
+
+
+/* string_utils2.c */
+char *str__dup(const char *s);
+/* str__dup */
+int is__number(const char *status);
+/* is__number */
+int is__digit(int c);
+/* is__digit */
+
+/* _getline.c */
+#define READ_BUFFER_SIZE 1024
+
+ssize_t get__line(char **ptr_line, size_t *input_n, FILE *file_stream);
+
+
+#endif /* SIMPLE_HEADER */
