@@ -30,3 +30,37 @@ typedef struct data
 	int exit_status_last;
 	int flag_set_env;
 } data_struct;
+
+/**
+ * struct builtin - principal data holder
+ * @cmd: blttn cmd
+ * @f: func
+ */
+typedef struct builtin
+{
+	const char *cmd;
+	void (*f)(data_struct *dt);
+} builtin;
+
+int bltIN_execute(data_struct *dt);
+/* bltIN_execute */
+void bltIN_quit(data_struct *dt);
+/* bltIN_quit */
+void bltIN_get_env(data_struct *dt);
+/* bltIN_get_env */
+void bltIN__setenv(data_struct *dt);
+/* bltIN__setenv */
+void bltIN__unsetenv(data_struct *dt);
+/* bltIN__unsetenv */
+void bltIN__cd(data_struct *dt);
+/* bltIN__cd */
+
+
+void _printf(const char *stri);
+void free_array(char **arr);
+void split(data_struct *dt, const char *del);
+void initialize_datastruct(data_struct *dt, const char *shell_n);
+/* initialize_datastruct */
+void r__cmd(data_struct *dt);
+/* r__cmd */
+
