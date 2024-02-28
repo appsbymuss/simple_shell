@@ -64,3 +64,21 @@ void initialize_datastruct(data_struct *dt, const char *shell_n);
 void r__cmd(data_struct *dt);
 /* r__cmd */
 
+void p__error(const char *s1, const char *s2);
+/* p__error */
+void _trim(char *s);
+void *re_alloc(void *pointer, unsigned int n_size);
+/* re_alloc */
+
+void start__process(data_struct *dt);
+/* start__process */
+void hand__sigint(int sig);
+/* hand__sigint */
+void _exec(data_struct *dt);
+
+char *get__env(char *name);
+/* get__env */
+int _which(data_struct *dt);
+int set__env(data_struct *dt, char *name, char *value);
+/* set__env */
+
