@@ -45,7 +45,8 @@ char *str__dup(const char *s)
  */
 int is__number(const char *status)
 {
-	if (status == NULL || status[0] == '\0'){
+	if (status == NULL || status[0] == '\0')
+	{
 		return (0);
 	}
 	while (*status)
