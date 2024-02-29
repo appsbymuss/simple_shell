@@ -36,7 +36,8 @@ ssize_t get__line(char **ptr_line, size_t *input_n, FILE *file_stream)
 	static size_t bufSize, bufPos;
 	char *newBuf;
 
-	if (ptr_line == NULL || g_line_helper(ptr_line, input_n) == -1 || input_n == NULL
+	if (ptr_line == NULL || g_line_helper(ptr_line, input_n) == -1
+	|| input_n == NULL
 	|| file_stream == NULL)
 		return ((0 - 1));
 	while (1 == 1)
@@ -45,13 +46,9 @@ ssize_t get__line(char **ptr_line, size_t *input_n, FILE *file_stream)
 		{
 			bytesR = read(file_stream->_fileno, buf, READ_BUFFER_SIZE);
 			if (bytesR <= 0 && pos == 0)
-			{
 				return ((0 - 1));
-			}
 			else if (bytesR <= 0)
-			{
 				break;
-			}
 			bufSize = bytesR;
 			bufPos = 0;
 		}
@@ -60,17 +57,13 @@ ssize_t get__line(char **ptr_line, size_t *input_n, FILE *file_stream)
 			newSize = 2 * *input_n;
 			newBuf = realloc(*ptr_line, newSize);
 			if (newBuf == NULL)
-			{
 				return (-1);
-			}
 			*ptr_line = newBuf;
 			*input_n = newSize;
 		}
 		(*ptr_line)[pos++] = buf[bufPos++];
 		if ((*ptr_line)[pos - 1] == (char)10)
-		{
 			break;
-		}
 	}
 	(*ptr_line)[pos] = (char)0;
 	return (pos);
