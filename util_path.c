@@ -30,7 +30,7 @@ char *get__env(char *name)
 
 /**
  * _which - locate the executable file associated with a given command.
- * @d: string input
+ * @dt: string input
  * Return: void
  */
 int _which(data_struct *dt)
@@ -145,7 +145,7 @@ char **_new_environ(char *name, char *value)
 
 /**
  * set__env - Initialize a new environment variable, or modify an existing one
- * @d: to use the flag
+ * @dt: to use the flag
  * @name: variable name
  * @value: variable value
  * Return: void
